@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+             http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
+
+    <persistence-unit name="JpaQuickLook" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>cn.glbb.quicklook.Customer</class>
+        <class>cn.glbb.quicklook.Order</class>
+
+        <class>cn.glbb.quicklook.Student</class>
+        <class>cn.glbb.quicklook.Teacher</class>
+
+        <class>cn.glbb.quicklook.Manager</class>
+        <class>cn.glbb.quicklook.Departement</class>
+
+        <class>cn.glbb.quicklook.Catagory</class>
+        <class>cn.glbb.quicklook.Item</class>
+
+        <!--二级缓存相关-->
+        <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"></property>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql:///jpa_study"></property>
+            <property name="javax.persistence.jdbc.user" value="root"></property>
+            <property name="javax.persistence.jdbc.password" value="*****"></property>
+            
+            <property name="hibernate.format_sql" value="true"></property>
+            <property name="hibernate.show_sql" value="true"></property>
+            <property name="hibernate.hbm2ddl.auto" value="update"></property>
+
+            <!-- 二级缓存相关 -->
+            <property name="hibernate.cache.use_second_level_cache" value="true"/>
+            <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.EhCacheRegionFactory"/>
+            <property name="hibernate.cache.use_query_cache" value="true"/>
+        </properties>
+
+    </persistence-unit>
+
+</persistence>
